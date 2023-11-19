@@ -10,7 +10,7 @@ use Session;
 class LoginController extends Controller
 {
     public function create(){
-        return view('admin.guest.login');
+        return view('admin.auth.login');
     }
     public function dashboard(){
         return view('admin.dashboard.dashboard');
@@ -25,7 +25,7 @@ class LoginController extends Controller
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
             return redirect('admin/dashboard');
         }else{
-            Session::flash('error','Invalid Email Or Password');
+            return back()->with('error','Invalid Username and Passsword');
         }
 
     }

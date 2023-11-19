@@ -11,12 +11,10 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminRegistationController extends Controller{
 
-    public function create()
-    {
-        return view('admin.guest.registation');
+    public function create(){
+        return view('admin.auth.registation');
     }
-    public function store(Request $request)
-    {
+    public function store(Request $request){
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.Admin::class],
