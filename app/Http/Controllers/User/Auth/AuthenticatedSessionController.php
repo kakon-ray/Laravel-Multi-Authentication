@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\User\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
@@ -17,19 +17,26 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('user.auth.login');
     }
 
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+    public function store(LoginRequest $request){
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
 
-        $request->session()->regenerate();
-
-        return redirect()->intended(RouteServiceProvider::HOME);
+        if(Auth::guard('web')->attempt(['email'=>$request->email,'password'=>$request->password])){
+            $arr = array('status'=>200,'msg'=>'Login Successed');
+            return \Response::json($arr);
+        }else{
+            $arr = array('status'=>400,'msg'=>'Login Faild');
+            return \Response::json($arr);
+            
+        }
     }
 
     /**

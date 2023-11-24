@@ -29,7 +29,8 @@ class LoginController extends Controller
             return \Response::json($arr);
         }else{
             // return back()->with('error','Invalid Username and Passsword');
-            return back()->with(json_encode(['msg'=>'Login Faild!']));
+            $arr = array('status'=>400,'msg'=>'Login Faild');
+            return \Response::json($arr);
             
         }
 

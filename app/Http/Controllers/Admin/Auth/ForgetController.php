@@ -50,8 +50,10 @@ class ForgetController extends Controller
       return back()->with('success','we have e-mailed your password rest link!');
     }
 
-    function show_reset_password_form($token){
-        return view('admin.auth.password_reset_form',['token'=>$token]);
+    function show_reset_password_form(Request $request){
+        $token = $request->token;
+        $email = $request->email;
+        return view('admin.auth.password_reset_form',['token'=>$token,'email'=>$email]);
      }
 
 
@@ -76,7 +78,7 @@ class ForgetController extends Controller
             
             if($responce){
                 DB::table('password_resets')->where('email',$request->email)->delete();
-                return back()->with('success','Password Reset Successed');
+                return redirect('admin/login');
             }
         }
     }
