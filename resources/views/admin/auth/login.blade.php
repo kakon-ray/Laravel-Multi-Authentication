@@ -5,7 +5,7 @@
     <p class="alert alert-danger small">{{session('error')}}</p>
     @endif
 
-    <form method="POST" action="{{ route('admin.login') }}">
+    <form method="POST" id="submitloginform" action="{{ route('admin.login') }}">
         @csrf
 
         <!-- Email Address -->

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
+use Illuminate\Support\Facades\Response;
 
 class LoginController extends Controller
 {
@@ -23,9 +24,13 @@ class LoginController extends Controller
         ]);
 
         if(Auth::guard('admin')->attempt(['email'=>$request->email,'password'=>$request->password])){
-            return redirect('admin/dashboard');
+            // return redirect('admin/dashboard');
+            $arr = array('status'=>200,'msg'=>'Login Successed');
+            return \Response::json($arr);
         }else{
-            return back()->with('error','Invalid Username and Passsword');
+            // return back()->with('error','Invalid Username and Passsword');
+            return back()->with(json_encode(['msg'=>'Login Faild!']));
+            
         }
 
     }
