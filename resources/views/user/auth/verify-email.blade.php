@@ -1,8 +1,8 @@
 @extends('layouts.user.guest')
 @section('content')
 
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+    <div class="mb-4 text-sm text-center text-gray-600 dark:text-gray-400">
+        {{ __('লগিন করতে আপনকে ইমেইল ভেরিফিকেশন করতে হবে। ইমেইল ভেরিফিকেশন লিংক অলরেডি পাঠানো হয়েছে । আপনার ইমেইল চেক করুন।') }}
     </div>
 
     @if (session('status') == 'verification-link-sent')
