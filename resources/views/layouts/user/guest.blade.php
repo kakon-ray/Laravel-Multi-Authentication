@@ -1,40 +1,80 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="zxx">
+  
+<!-- Mirrored from amincodes.com/html/forsa/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Sep 2023 06:56:08 GMT -->
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <!-- fav icon -->
+        <link rel="icon" href="{{asset('frontend/assets/images/fav-icon/fav-icon.png')}}">
+        
+        <!-- bootstarp -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/bootstrap.min.css')}}">
+        
+        <!-- Fancybox -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/jquery.fancybox.min.css')}}">
+        
+        <!-- animate.css file -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/animate.css')}}">
+        
+        <!-- Swiper -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/swiper.min.css')}}">
+        
+        <!-- fontAwesome -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/all.min.css')}}">
+        
+        <!-- Splitting -->
+        <link rel="stylesheet" href="{{asset('frontend/css/vendors/splitting.css')}}">
+        
+        <!-- Font Family -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">        
+        <!-- styles-LTR -->
+        <link rel="stylesheet" href="{{asset('frontend/css/styles-ltr.css')}}">
+    <title>Home</title>
+  </head>
+  <body class=" overlay-is-linear-gradient ">  
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    @include('layouts.user.navigation')
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-        {{-- bootstrap css --}}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body class="font-sans text-gray-900 antialiased">
-        <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
-            <div>
-                <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-                </a>
-            </div>
+    <!-- Page Content -->
+    <main>
+        @yield('content')
+    </main>
 
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg">
-           
+    @include('layouts.user.footer')
 
-                @yield('content')
-            </div>
-        </div>
+    <!-- Start back-to-top Component-->
+    <div class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up icon"></i></div>
 
+        <script src="{{asset('frontend/js/vendors/jquery-3.6.1.min.js')}}"></script>
+        
+        <!--     bootstrap     -->
+        <script src="{{asset('frontend/js/vendors/bootstrap.bundle.min.js')}}"></script>
+        
+        <!--     fancybox     -->
+        <script src="{{asset('frontend/js/vendors/jquery.fancybox.min.js')}}"></script>
+        
+        <!--     countTo     -->
+        <script src="{{asset('frontend/js/vendors/jquery.countTo.js')}}"></script>
+        
+        <!--     wow     -->
+        <script src="{{asset('frontend/js/vendors/wow.min.js')}}"></script>
+        
+        <!--     swiper     -->
+        <script src="{{asset('frontend/js/vendors/swiper.min.js')}}"></script>
+        
+        <!--     isotope     -->
+        <script src="{{asset('frontend/js/vendors/isotope-min.js')}}"></script>
+        
+        <!--     Splitting     -->
+        <script src="{{asset('frontend/js/vendors/splitting.min.js')}}"></script>
+        
+        <!--     main     -->
+        <script src="{{asset('frontend/js/main.js')}}"></script>
+  </body>
 
-         <!-- sweet alert -->
-         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-       <script src="{{asset('js/auth.js')}}"></script>
-    </body>
+<!-- Mirrored from amincodes.com/html/forsa/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 26 Sep 2023 06:56:33 GMT -->
 </html>
